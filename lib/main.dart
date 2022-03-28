@@ -76,7 +76,9 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
           Expression exp = p.parse(expression);
 
           ContextModel cm = ContextModel();
-          result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          String resultAux = '${exp.evaluate(EvaluationType.REAL, cm)}';
+          double numero = double.parse(resultAux);
+          result = numero.toStringAsFixed(2);
         } catch (e) {
           result = "Error";
         }
