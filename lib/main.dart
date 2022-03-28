@@ -20,7 +20,7 @@ class Calculator extends StatelessWidget {
         //
         // Try running your application with "flutter run". You'll see the
         // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
+        // changing the primarySwatch below to Colors.blue and then invoke
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
@@ -116,7 +116,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                       color: Colors.white))),
           Container(
               alignment: Alignment.centerRight,
-              color: Colors.green,
+              color: Colors.blue,
               padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
               child: Text(result,
                   style: TextStyle(
@@ -136,7 +136,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                 child: Table(
                   children: [
                     TableRow(children: [
-                      buildButton("C", 1, Colors.red),
+                      buildButton("C", 1, Colors.pink),
                       buildButton("⌫", 1, Colors.black),
                       buildButton("÷", 1, Colors.black),
                     ]),
@@ -156,7 +156,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                       buildButton("3", 1, Colors.black),
                     ]),
                     TableRow(children: [
-                      buildButton(".", 1, Colors.red),
+                      buildButton(".", 1, Colors.pink),
                       buildButton("0", 1, Colors.black),
                       buildButton("00", 1, Colors.black),
                     ]),
@@ -170,16 +170,16 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                 child: Table(
                   children: [
                     TableRow(children: [
-                      buildButton("x", 1, Colors.red),
+                      buildButton("x", 1, Colors.pink),
                     ]),
                     TableRow(children: [
-                      buildButton("-", 1, Colors.red),
+                      buildButton("-", 1, Colors.pink),
                     ]),
                     TableRow(children: [
-                      buildButton("+", 1, Colors.red),
+                      buildButton("+", 1, Colors.pink),
                     ]),
                     TableRow(children: [
-                      buildButton("=", 2, Colors.green),
+                      buildButton("=", 2, Colors.blue),
                     ]),
                   ],
                 ),
