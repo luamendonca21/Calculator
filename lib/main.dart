@@ -1,6 +1,5 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(const Calculator());
@@ -53,17 +52,43 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
   buttonPressed(String buttonText) {
     setState(() {
       if (buttonText == "C") {
+        equationSize = 38.0;
+        resultSize = 48.0;
         equation = "0";
         result = "0";
       } else if (buttonText == "⌫") {
+        equationSize = 48.0;
+        resultSize = 38.0;
         equation = equation.substring(0, equation.length - 1);
+        if (equation == "") {
+          equation = "0";
+        }
       } else if (buttonText == "=") {
-        // code
+        equationSize = 38.0;
+        resultSize = 48.0;
+
+        expression = equation;
+        expression = expression.replaceAll('x', '*');
+        expression = expression.replaceAll('÷', '/');
+
+        try {
+          Parser p = Parser();
+          Expression exp = p.parse(expression);
+
+          ContextModel cm = ContextModel();
+          result = '${exp.evaluate(EvaluationType.REAL, cm)}';
+        } catch (e) {
+          result = "Error";
+        }
       } else {
+        equationSize = 48.0;
+        resultSize = 38.0;
         // to remove the 0
         if (equation == "0") {
+          result = buttonText;
           equation = buttonText;
         } else {
+          result = buttonText;
           equation = equation + buttonText;
         }
       }
@@ -107,7 +132,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
         children: <Widget>[
           Container(
               alignment: Alignment.centerRight,
-              color: Colors.black,
+              color: Colors.blue,
               padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
               child: Text(equation,
                   style: TextStyle(
@@ -117,11 +142,11 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
           Container(
               alignment: Alignment.centerRight,
               color: Colors.blue,
-              padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
               child: Text(result,
                   style: TextStyle(
                       fontSize: resultSize,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.bold,
                       color: Colors.white))),
           const Expanded(
             child: Divider(),
@@ -132,7 +157,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
               Container(
                 color: Colors.white,
                 width: MediaQuery.of(context).size.width * .75,
-                height: MediaQuery.of(context).size.height * .55,
+                height: MediaQuery.of(context).size.height * .50,
                 child: Table(
                   children: [
                     TableRow(children: [
@@ -165,7 +190,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width * .25,
-                height: MediaQuery.of(context).size.height * .55,
+                height: MediaQuery.of(context).size.height * .50,
                 color: Colors.white,
                 child: Table(
                   children: [
