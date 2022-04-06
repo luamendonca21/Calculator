@@ -5,6 +5,23 @@ void main() {
   runApp(const Calculator());
 }
 
+const MaterialColor primaryBlack = MaterialColor(
+  _blackPrimaryValue,
+  <int, Color>{
+    50: Color(0xFF000000),
+    100: Color(0xFF000000),
+    200: Color(0xFF000000),
+    300: Color(0xFF000000),
+    400: Color(0xFF000000),
+    500: Color(_blackPrimaryValue),
+    600: Color(0xFF000000),
+    700: Color(0xFF000000),
+    800: Color(0xFF000000),
+    900: Color(0xFF000000),
+  },
+);
+const int _blackPrimaryValue = 0xFF000000;
+
 class Calculator extends StatelessWidget {
   const Calculator({Key? key}) : super(key: key);
 
@@ -24,7 +41,7 @@ class Calculator extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: primaryBlack,
       ),
       home: const SimpleCalculator(),
     );
@@ -101,6 +118,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
   Widget buildButton(
       String buttonText, double buttonHeight, Color buttonColor) {
     return Container(
+        padding: const EdgeInsets.all(1),
         color: Colors.white,
         height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
         child: TextButton(
@@ -122,7 +140,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                       borderRadius: BorderRadius.circular(20))),
               backgroundColor: MaterialStateProperty.all(buttonColor),
               padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                  const EdgeInsets.all(16)),
+                  const EdgeInsets.all(15)),
             )));
   }
 
@@ -132,9 +150,18 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
       appBar: AppBar(title: const Center(child: Text("Simple Calculator"))),
       body: Column(
         children: <Widget>[
+          const Expanded(
+            child: Divider(
+              color: Colors.white,
+            ),
+          ),
           Container(
+              decoration: const BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              width: MediaQuery.of(context).size.width * 0.99,
               alignment: Alignment.centerRight,
-              color: Colors.blue,
               padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
               child: Text(equation,
                   style: TextStyle(
@@ -142,17 +169,20 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                       fontWeight: FontWeight.w300,
                       color: Colors.white))),
           Container(
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 2),
+              decoration: const BoxDecoration(
+                color: Colors.black,
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(20)),
+              ),
+              width: MediaQuery.of(context).size.width * 0.99,
               alignment: Alignment.centerRight,
-              color: Colors.blue,
               padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
               child: Text(result,
                   style: TextStyle(
                       fontSize: resultSize,
                       fontWeight: FontWeight.bold,
                       color: Colors.white))),
-          const Expanded(
-            child: Divider(),
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -163,9 +193,9 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                 child: Table(
                   children: [
                     TableRow(children: [
-                      buildButton("C", 1, Colors.pink),
-                      buildButton("⌫", 1, Colors.black),
-                      buildButton("÷", 1, Colors.black),
+                      buildButton("C", 1, Colors.orange),
+                      buildButton("x", 1, Colors.orange),
+                      buildButton("÷", 1, Colors.orange),
                     ]),
                     TableRow(children: [
                       buildButton("9", 1, Colors.black),
@@ -183,7 +213,7 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                       buildButton("3", 1, Colors.black),
                     ]),
                     TableRow(children: [
-                      buildButton(".", 1, Colors.pink),
+                      buildButton(".", 1, Colors.black),
                       buildButton("0", 1, Colors.black),
                       buildButton("00", 1, Colors.black),
                     ]),
@@ -197,16 +227,17 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
                 child: Table(
                   children: [
                     TableRow(children: [
-                      buildButton("x", 1, Colors.pink),
+                      buildButton("⌫", 1, Colors.orange),
                     ]),
                     TableRow(children: [
-                      buildButton("-", 1, Colors.pink),
+                      buildButton("-", 1, Colors.orange),
                     ]),
                     TableRow(children: [
-                      buildButton("+", 1, Colors.pink),
+                      buildButton("+", 1, Colors.orange),
                     ]),
                     TableRow(children: [
-                      buildButton("=", 2, Colors.blue),
+                      buildButton(
+                          "=", 2, const Color.fromARGB(255, 255, 115, 0)),
                     ]),
                   ],
                 ),
