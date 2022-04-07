@@ -1,4 +1,8 @@
-# calculator
+# Calculator
+
+A calculator app that realize the most basic operations such as addition, subtraction, multiplication and division.
+
+<img src="https://github.com/luamendonca21/Marine-Trips-App/blob/master/assets/Readme/login.jpeg" width="300" height="650">
 
 A new Flutter project.
 
