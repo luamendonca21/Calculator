@@ -4,9 +4,11 @@ A calculator app that realize the most basic operations such as addition, subtra
 
 <img src="https://github.com/luamendonca21/Calculator/blob/master/assetsReadme/ic_launcher.png" width="48" height="48">
 
-<b>Tools and languages</b>
+##Tools and languages
 
 This app was developed in Flutter using the Dart language.
+
+##Screens
 
 <b>Launch Screen</b>
 
