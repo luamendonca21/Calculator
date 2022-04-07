@@ -10,6 +10,9 @@ This app was developed in Flutter using the Dart language.
 
 ## Launch Screen
 
-<img src="https://github.com/luamendonca21/Calculator/blob/master/assetsReadme/launch.jpg" width="300" height="48">
+<img src="https://github.com/luamendonca21/Calculator/blob/master/assetsReadme/launch.jpg" width="300" height="650">
 
 ## Main Screen
+
+<img src="https://github.com/luamendonca21/Calculator/blob/master/assetsReadme/main.jpg" width="300" height="650">
+
