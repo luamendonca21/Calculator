@@ -6,7 +6,7 @@ A calculator app that realize the most basic operations such as addition, subtra
 
 # Development
 
-This app was developed in Flutter using the Dart language.
+This app was developed using the framework Flutter and Dart programming language.
 
 # Screens
 
