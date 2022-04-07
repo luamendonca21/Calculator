@@ -2,7 +2,7 @@
 
 A calculator app that realize the most basic operations such as addition, subtraction, multiplication and division.
 
-<img src="https://github.com/luamendonca21/Marine-Trips-App/blob/master/assets/Readme/login.jpeg" width="300" height="650">
+<img src="https://github.com/luamendonca21/Calculator/blob/master/assetsReadme/ic_launcher.png" width="200" height="200">
 
 A new Flutter project.
 
